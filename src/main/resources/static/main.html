@@ -4,35 +4,119 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- CSS only -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">-->
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: #3e3e3e;
+            color: white;
+        }
+        #languageSelectDiv{
+            padding-left: 200px;
+        }
+    </style>
 </head>
 <body>
-<div id="content">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
+<script>
+    var language;
+    function getLanguage(lang) {
+        $.ajax({
+            url:  '/language/' +  lang + '.json',
+            dataType: 'json', async: false, dataType: 'json',
+            success: function (data) {
+                language = data;
+            } });
+        setLanguage();
+    }
+
+    function setLanguage() {
+        $('#home').html(language["home"]);
+        $('#scada').text(language["scada"]);
+        $('#jobs').text(language["jobs"]);
+        $('#products').text(language["products"]);
+        $('#solutions').text(language["solutions"]);
+        $('#building-automation').text(language["building-automation"]);
+        $('#energy-management').text(language["energy-management"]);
+        $('#fan-coil').text(language["fan-coil"]);
+        $('#air-treatment').text(language["air-treatment"]);
+        $('#thermostat').text(language["thermostat"]);
+        $('#heat-central').text(language["heat-central"]);
+        $('#references').text(language["references"]);
+        $('#contact').text(language["contact"]);
+    }
+</script>
+<div id="menu">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SAMU</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" id="home">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="scada" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SCADA
+                </a>
+                <div class="dropdown-menu btn-dark text-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" id="jobs">Jobs</a>
+                    <a class="dropdown-item" href="#" id="products">Products</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="solutions" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SOLUTIONS
+                </a>
+                <div class="dropdown-menu btn-dark text-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" id="building-automation">Building Automation</a>
+                    <a class="dropdown-item" href="#" id="energy-management">Energy Management</a>
+                    <a class="dropdown-item" href="#" id="fan-coil">Fan Coil</a>
+                    <a class="dropdown-item" href="#" id="air-treatment">Air Treatment</a>
+                    <a class="dropdown-item" href="#" id="thermostat">Thermostat</a>
+                    <a class="dropdown-item" href="#" id="heat-central">Heat Central</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" id="references">REFERENCES <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" id="contact">CONTACT <span class="sr-only">(current)</span></a>
+            </li>
+            <div id="languageSelectDiv">
+                <ul class="ui-corner-right small">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn-dark text-warning" href="#" id="languageSelector" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        </a>
+                        <div class="dropdown-menu btn-dark text-warning" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('hungarian')">HU</a>
+                            <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('english')">EN</a>
+                            <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('german')">DE</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Page 2</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-        </div>
-    </nav>
+
+        </ul>
+
+    </div>
+</nav>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        getLanguage('hungarian');
+        //console.log(language);
+            });
+
+</script>
 </body>
 </html>
