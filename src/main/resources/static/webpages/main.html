@@ -16,8 +16,26 @@
             background-color: #3e3e3e;
             color: white;
         }
-        #languageSelectDiv{
-            padding-left: 200px;
+        /*#languageSelectDiv{*/
+        /*    !*padding-left: 150px;*!*/
+        /*    padding-right: 100px;*/
+        /*    float: right;*/
+        /*    width: 50px;*/
+
+        /*}*/
+        #languageSelectorInside{
+            width: 60px;
+            min-width: 50px;
+            max-width: 80px;
+            text-align: center;
+            horiz-align: center;
+            vertical-align: center;
+        }
+        @media all and (min-width: 992px) {
+            .navbar .nav-item .dropdown-menu{ display: none; }
+            .navbar .nav-item:hover .nav-link{   }
+            .navbar .nav-item:hover .dropdown-menu{ display: block; }
+            .navbar .nav-item .dropdown-menu{ margin-top:0; }
         }
     </style>
 </head>
@@ -48,16 +66,61 @@
         $('#heat-central').text(language["heat-central"]);
         $('#references').text(language["references"]);
         $('#contact').text(language["contact"]);
+
+        $('#languageSelector').text(language["language"]);
     }
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+// make it as accordion for smaller screens
+        if (window.innerWidth > 992) {
+
+            document.querySelectorAll('.mainMenu').forEach(function(everyitem){//it van a változtatás
+
+                everyitem.addEventListener('mouseover', function(e){
+
+                    let el_link = this.querySelector('a[data-bs-toggle]');
+
+                    if(el_link != null){
+                        let nextEl = el_link.nextElementSibling;
+                        el_link.classList.add('show');
+                        nextEl.classList.add('show');
+                    }
+
+                });
+                everyitem.addEventListener('mouseleave', function(e){
+                    let el_link = this.querySelector('a[data-bs-toggle]');
+
+                    if(el_link != null){
+                        let nextEl = el_link.nextElementSibling;
+                        el_link.classList.remove('show');
+                        nextEl.classList.remove('show');
+                    }
+
+
+                })
+            });
+
+        }
+// end if innerWidth
+    });
+</script>
+
 <div id="menu">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
     <a class="navbar-brand" href="#">SAMU</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
+
+    <div class="mainMenu">//ez a klasz
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="#" id="home">HOME <span class="sr-only">(current)</span></a>
@@ -90,25 +153,85 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#" id="contact">CONTACT <span class="sr-only">(current)</span></a>
             </li>
-            <div id="languageSelectDiv">
-                <ul class="ui-corner-right small">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle btn-dark text-warning" href="#" id="languageSelector" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                        </a>
-                        <div class="dropdown-menu btn-dark text-warning" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('hungarian')">HU</a>
-                            <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('english')">EN</a>
-                            <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('german')">DE</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
 
         </ul>
 
     </div>
+
+</div>
+
+
+<!--    <ul class="lang-selector">-->
+<!--        <li class="active"><a href="#" title="hu">hu</a><i class="fa fa-angle-down"></i></li>-->
+<!--        <ul style="display: block;">-->
+<!--            <li><a href="http://pass-scada.com/" title="">EN</a></li>-->
+<!--            <li><a href="http://pass-scada.de/" title="">DE</a></li>-->
+<!--        </ul>-->
+<!--    </ul>-->
+
+
+
+
+<!--    <ul class="nav navbar-nav navbar-right">-->
+<!--        <li><a href="#">Link</a></li>-->
+<!--        <li class="dropdown">-->
+<!--            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+<!--            <ul class="dropdown-menu" role="menu">-->
+<!--                <li><a href="#">Action</a></li>-->
+<!--                <li><a href="#">Another action</a></li>-->
+<!--                <li><a href="#">Something else here</a></li>-->
+<!--                <li class="divider"></li>-->
+<!--                <li><a href="#">Separated link</a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--    </ul>-->
+
+
+
+
+    <div id="languageSelectDiv">
+        <ul class="ui-corner-right small">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn-dark text-warning" href="#" id="languageSelector" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    HU
+                </a>
+                <div class="dropdown-menu btn-dark text-warning" aria-labelledby="navbarDropdown" id="languageSelectorInside">
+                    <a class="dropdown-item btn-dark text-warning "  href="#" onclick="getLanguage('hungarian')">HU</a>
+                    <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('english')">EN</a>
+                    <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('german')">DE</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+<!--    <div id="languageSelectDiv">-->
+<!--        <ul class="ui-corner-right small">-->
+<!--            <li class="nav-item dropdown" >-->
+<!--                <a class="nav-link dropdown-toggle btn-dark text-warning" href="#" id="languageSelector" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+
+<!--                </a>-->
+<!--                <div class="dropdown-menu btn-dark text-warning" aria-labelledby="navbarDropdown" id="languageSelectorInside">-->
+<!--                    <select>-->
+<!--                        <option selected> <a class="dropdown-item btn-dark text-warning "  href="#" onclick="getLanguage('hungarian')">HU</a> </option>-->
+<!--                        <option> <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('english')">EN</a> </option>-->
+<!--                        <option> <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('german')">DE</a> </option>-->
+<!--                    </select>-->
+
+
+
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+
+
 </nav>
+
+
+
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>

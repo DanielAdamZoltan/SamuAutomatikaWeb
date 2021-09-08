@@ -6,10 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @GetMapping("/proba")
+    @GetMapping("/")
     public String viewHomePage()
     {
-        return "mainPage/proba";
+        return "../static/webpages/index";
+    }
+
+    @GetMapping("/jobs")
+    public String viewJobsPage()
+    {
+        return "../static/webpages/jobs";
     }
 
 
