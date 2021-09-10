@@ -1,4 +1,3 @@
-
 {
   "home": "HOME",
   "scada": "SCADA",
@@ -13,5 +12,8 @@
   "heat-central": "Heat Central",
   "references": "REFERENCES",
   "contact": "CONTACT",
-  "language": "EN"
+  "language": "EN",
+  "home-page-title": "Samu webpage |\n All rights reserved",
+  "jobs-title": "Jobs",
+  "building-automation-title": "Building Automation"
 }

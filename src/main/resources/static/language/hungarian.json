@@ -1,4 +1,3 @@
-
 {
   "home": "FŐOLDAL",
   "scada": "SCADA",
@@ -13,5 +12,13 @@
   "heat-central": "Központi Fűtés",
   "references": "REFERENCIÁK",
   "contact": "KAPCSOLATOK",
-  "language": "HU"
+  "language": "HU",
+  "home-page-title": "Samu weboldal |\n Minden jog fenntartva",
+  "jobs-title": "Munka körök",
+  "building-automation-title": "Épületautomatizálás"
+
+
+
+
+
 }

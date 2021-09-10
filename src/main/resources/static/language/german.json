@@ -1,4 +1,3 @@
-
   {
   "home": "HAUPSEITE",
   "scada": "SCADA",
@@ -13,5 +12,8 @@
   "heat-central": "Zentralheizug",
   "references": "REFERENZEN",
   "contact": "BEZIEHUNGEN",
-  "language": "DE"
+  "language": "DE",
+  "home-page-title": "Samu Webseite |\n Alle Rechte vorbehalten",
+    "jobs-title": "Stelle",
+    "building-automation-title": "Bauwerkautomatisierung"
   }

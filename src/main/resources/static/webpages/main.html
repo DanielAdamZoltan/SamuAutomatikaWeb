@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
     <!-- CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style.css">
@@ -10,78 +10,34 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../script/script.js?rndstr=<%= getRandomStr() %>"></script>
-    <script>
-        $(function(){
-            $('.selectpicker').selectpicker();
-        });
 
-    </script>
 </head>
 <body>
-
-<!--<script>
-    document.addEventListener("DOMContentLoaded", function(){
-// make it as accordion for smaller screens
-        if (window.innerWidth > 992) {
-
-            document.querySelectorAll('.mainMenu').forEach(function(everyitem){//it van a változtatás
-
-                everyitem.addEventListener('mouseover', function(e){
-
-                    let el_link = this.querySelector('a[data-bs-toggle]');
-
-                    if(el_link != null){
-                        let nextEl = el_link.nextElementSibling;
-                        el_link.classList.add('show');
-                        nextEl.classList.add('show');
-                    }
-
-                });
-                everyitem.addEventListener('mouseleave', function(e){
-                    let el_link = this.querySelector('a[data-bs-toggle]');
-
-                    if(el_link != null){
-                        let nextEl = el_link.nextElementSibling;
-                        el_link.classList.remove('show');
-                        nextEl.classList.remove('show');
-                    }
-
-
-                })
-            });
-
-        }
-// end if innerWidth
-    });
-</script>-->
 
 <div id="menu">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand" href="#">SAMU</a>
+    <a class="navbar-brand" href="/index/">SAMU</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-
-
 
     <div class="mainMenu">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#" id="home">HOME <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index/" id="home">HOME <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-light" href="#" id="scada" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     SCADA
                 </a>
                 <div class="dropdown-menu btn-dark text-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" id="jobs">Jobs</a>
-                    <a class="dropdown-item" href="#" id="products">Products</a>
+                    <a class="dropdown-item" href="/jobs/" id="jobs">Jobs</a>
+                    <a class="dropdown-item" href="/products/" id="products">Products</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -89,53 +45,24 @@
                     SOLUTIONS
                 </a>
                 <div class="dropdown-menu btn-dark text-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" id="building-automation">Building Automation</a>
-                    <a class="dropdown-item" href="#" id="energy-management">Energy Management</a>
-                    <a class="dropdown-item" href="#" id="fan-coil">Fan Coil</a>
-                    <a class="dropdown-item" href="#" id="air-treatment">Air Treatment</a>
-                    <a class="dropdown-item" href="#" id="thermostat">Thermostat</a>
-                    <a class="dropdown-item" href="#" id="heat-central">Heat Central</a>
+                    <a class="dropdown-item" href="/building-automation/" id="building-automation">Building Automation</a>
+                    <a class="dropdown-item" href="/energy-management/" id="energy-management">Energy Management</a>
+                    <a class="dropdown-item" href="/fan-coil/" id="fan-coil">Fan Coil</a>
+                    <a class="dropdown-item" href="/air-treatment/" id="air-treatment">Air Treatment</a>
+                    <a class="dropdown-item" href="/thermostat/" id="thermostat">Thermostat</a>
+                    <a class="dropdown-item" href="/heat-central/" id="heat-central">Heat Central</a>
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#" id="references">REFERENCES <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/references/" id="references">REFERENCES <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#" id="contact">CONTACT <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/contact/" id="contact">CONTACT <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
 
 </div>
-
-
-
-<!--    <div id="languageSelectDiv">-->
-<!--        <ul class="ui-corner-right small">-->
-<!--            <li class="nav-item dropdown">-->
-<!--                <a class="nav-link dropdown-toggle btn-dark text-warning" href="#" id="languageSelector" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                    HU-->
-<!--                </a>-->
-<!--                <div class="dropdown-menu btn-dark text-warning" aria-labelledby="navbarDropdown" id="languageSelectorInside">-->
-<!--                    <a class="dropdown-item btn-dark text-warning "  href="#" onclick="getLanguage('hungarian')">HU</a>-->
-<!--                    <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('english')">EN</a>-->
-<!--                    <a class="dropdown-item btn-dark text-warning" href="#" onclick="getLanguage('german')">DE</a>-->
-<!--                </div>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-
-
-
-
-<!--    <div id="languageSelectDiv">-->
-<!--        <select class="selectpicker" data-width="fit">-->
-<!--            <option data-content='<span class="flag-icon flag-icon-hu"></span> Hungarian'><a onclick="getLanguage('hungarian')">HU</a></option>-->
-<!--            <option data-content='<span class="flag-icon flag-icon-en"></span> English'><a onclick="getLanguage('english')">EN</a></option>-->
-<!--            <option data-content='<span class="flag-icon flag-icon-de"></span> German'><a onclick="getLanguage('german')">DE</a></option>-->
-<!--        </select>-->
-<!--    </div>-->
-
 
     <div id="languageSelectDiv">
             <select class="form-select" aria-label="Default select example" onchange="getLanguage(this.value)">
@@ -145,14 +72,9 @@
             </select>
     </div>
 
-
-
-
-
 </nav>
 
 </div>
-
 
 </body>
 </html>
